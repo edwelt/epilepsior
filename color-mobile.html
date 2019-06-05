@@ -1,0 +1,54 @@
+<html>
+
+<head>
+
+<script>
+var colors =['red', 'green', 'blue', 'yellow', 'grey', 'white', 'black', 'orange', 'cyan'];
+var isfs = false;
+var freq = 100;
+var duration = 900;
+
+a=new AudioContext();
+
+function beep(vol, freq, duration){
+  v=a.createOscillator()
+  u=a.createGain()
+  v.connect(u)
+  v.frequency.value=freq
+  v.type="square"
+  u.connect(a.destination)
+  u.gain.value=vol*0.01
+  v.start(a.currentTime)
+  v.stop(a.currentTime+duration*0.001)
+}
+
+function randomInt(min,max) {
+    return Math.floor(Math.random()*(max-min+1)+min);
+}
+
+function changeBackground() {
+   var id = randomInt(0,8);
+   document.body.style.background = colors[id];
+   beep(999,freq,duration);
+   if(freq > 900){
+      freq = 100
+   } else {
+      freq = freq + 5
+   }
+   if(duration<100){
+      duration = 900
+   }else{
+      duration = duration - 5
+   }
+   if(!isfs){
+      document.documentElement.requestFullscreen();
+   }
+}
+window.addEventListener("load",function() { changeBackground(); });
+</script>
+</head>
+<body ontouchend="changeBackground('green')">
+   <p ontouchend="changeBackground('blue')">Touch me!</p>
+   <p>no touch me</p>
+</body>
+</html>
