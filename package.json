@@ -1,0 +1,25 @@
+{
+  "name": "epilepsior",
+  "version": "1.0.0",
+  "description": "Great activity for expand sinapsis in little kids.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/edwelt/epilepsior.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/edwelt/epilepsior/issues"
+  },
+  "homepage": "https://github.com/edwelt/epilepsior#readme",
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  }
+}
